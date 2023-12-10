@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Information Display</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="script" href="script.js">
+</head>
+<body>
+
+<h2>Patient Information</h2>
+  <script>
+    // Display patient information in the HTML
+    document.getElementById("patientName").textContent = patientData.name;
+    document.getElementById("patientAge").textContent = patientData.age;
+    document.getElementById("patientGender").textContent = patientData.gender;
+    document.getElementById("patientCondition").textContent = patientData.condition;
+    document.getElementById("patientMedication").textContent = patientData.medication;
+    document.getElementById("attendingDoctor").textContent = patientData.doctor;
+    function redirect() {
+      window.location.href = 'patients.html';
+    }
+  </script>
+<div id="patientInfo">
+  <p><strong>Name: John Doe</strong> <span id="patientName"></span></p>
+  <p><strong>Age: 35</strong> <span id="patientAge"></span></p>
+  <p><strong>Gender: Male</strong> <span id="patientGender"></span></p>
+  <p><strong>Condition/Reason for Visit: Broken arm</strong> <span id="patientCondition"></span></p>
+  <p><strong>Patient Medications: Painkillers</strong> <span id="patientMedication"></span></p>
+  <p><strong>Attending Doctor: Dr. Sturges</strong> <span id="attendingDoctor"></span></p>
+  <p><strong>Additional Notes: Does not speak English</strong> <span id="attendingDoctor"></span></p>
+</div>
+<button onclick="redirect()">Back</button>
+</body>
+</html>
