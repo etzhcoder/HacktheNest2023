@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <header>
+    <img src="logo.png" alt ="header" class = "headerimg">
+    <nav>
+      <ul>
+        <li><a href="patients.html">My Patients</a></li>
+        <li><a href="add.html">Add Patient</a></li>
+        <li><a href="account.html">My Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <h1 id = "welcome">Welcome</h1>
+    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+    <br>
+    <h2>Uncompleted Tasks</h2>
+    <ul class="tasks" id="list">
+      <li class="task">Check on all patients</li>
+      <li class="task">Complete patient billing</li>
+      <li class="task">Complete 10' clock rounds</li>
+      <li class="task">Check in with Doctors</li>
+    </ul>
+    <button onClick="openModal()">Add Task</button>
+    <div id="id01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <!-- Modal Content -->
+      <form id = "logForm" class="modal-content animate">
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+          <input id="logBtn" type="submit" value = "Login">
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw"><a href="#">Forgot Password?</a></span>
+        </div>
+    </form>
+  </div>
+    <div id="newTaskModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>New Task</h2>
+        <form id="taskForm">
+          <label for="taskName">Task Name:</label><br>
+          <input type="text" id="taskName" name="taskName" required><br><br>
+          <input type="submit" value="Add Task">
+          <button type="button" onclick="document.getElementById('newTaskModal').style.display='none'" class="cancelbtn">Cancel</button>
+        </form>
+      </div>
+    </div>
+  <script>
+    localStorage.clear();
+    const elements = document.getElementsByClassName('task');
+    const login = document.getElementById('logForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('uname').value;
+      const password = document.getElementById('psw').value;
+      const welcome = document.getElementById('welcome');
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+      welcome.innerHTMl = 'Welcome, ' + username;
+      document.getElementById('id01').style.display='none';
+    });
+    function removeElement() {
+      this.remove(); // Removes the clicked element
+    }
+    // Add click event listener to each element
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].addEventListener('click', removeElement);
+    }
+    function openModal() {
+      document.getElementById('newTaskModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('newTaskModal').style.display = 'none';
+    }
+    // Retrieve saved tasks from localStorage
+    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    // Display saved tasks in the list
+    const taskList = document.getElementById('list');
+    savedTasks.forEach(task => {
+      const li = document.createElement('li');
+      li.textContent = task;
+      taskList.appendChild(li);
+    });
+    // Handle form submission to add new tasks
+    document.getElementById('taskForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const taskName = document.getElementById('taskName').value.trim();
+      if (taskName !== '') {
+        const li = document.createElement('li');
+        li.textContent = taskName;
+        li.classList.add('task');
+        taskList.appendChild(li);
+        document.getElementById('taskList').append(li);
+        elements = document.getElementsByClassName('task');
+        elements[elements.length-1].addEventListener('click', removeElement);
+        // Save updated tasks to localStorage
+        savedTasks.push(taskName);
+        localStorage.setItem('tasks', JSON.stringify(savedTasks));
+        document.getElementById('taskName').value = ''; // Clear input field after adding task
+        closeModal();
+      } else {
+        alert('Please enter a task name.');
+      }
+    });
+  </script>
+</body>
+</html>

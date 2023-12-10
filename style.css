@@ -1,0 +1,201 @@
+/* 
+/* Basic CSS Reset */
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5; /* Light gray background */
+  color: #333; /* Dark gray text color */
+  margin-top: 80px;
+  padding: 30px;
+}
+*/
+/* Navigation Styles */
+nav {
+  position: flex;
+  margin: 0 100px 0;
+  align-self: right;
+}
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+header li {
+  margin:20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+header li a {
+    color: black;
+    text-decoration: none;
+}
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  align-content: right;
+}
+header li:hover {
+  background-color: #434242;
+  transition: background-color 1s;
+  color: white;
+  /*transition: color 2s;*/
+}
+
+ ul li a {
+  color: #2d2525;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: lightgray;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green button background */
+  color: #fff; /* White text color for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+a {
+  color: #007BFF; /* Blue link color */
+}
+a:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+h1 {
+  color: grey;
+  align-self: ;
+}
+h2, h3 {
+  align-self: left;
+  color: #4CAF50;
+  display: inline-block;
+  margin: 30px;
+}
+
+.headerimg {
+  height: 65px;
+  position: relative;
+  z-index: 1;
+  margin-left: 40px;
+}
+header * {
+  display: inline;
+}
+img {
+  align-self: right;
+  display: inline-block flex;
+  object-fit: cover;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  padding: 60px 30px 30px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.cancelbtn:hover,
+.cancelbtn:focus {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green button background */
+  color: #fff; /* White text color for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333; /* Dark gray text color for labels */
+  margin: 20px 30px 10px;
+}
+
+/* Example: Styling required labels with an asterisk */
+label.required::after {
+  content: '*';
+  color: #ff0000; /* Red asterisk color */
+  margin-left: 4px;
+}
+.task{
+  margin: 5vh 0 0;
+  padding: 5vh 3vh 5vh;
+  position: relative;
+  background-color: #4CAF50;
+  width: 40vw;
+}
+input {
+  margin: 10px 30px 10px;
+}
+

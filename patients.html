@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+  </head>
+  <header>
+    <img src="logo.png" class = "headerimg">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="add.html">Add Patient</a></li>
+        <li><a href="account.html">My Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <main>
+      <ul id="patientsList">
+        <h1>Patient 1 Information</h1>
+        <div>
+          <a href="patient.html"><h2>Patient 1: Name</h2></a>
+        <h1>Patient 2 Information</h1>
+        <div>
+          <a href="patient.html"><h2>Patient 2: Name</h2></a>
+        <h1>Patient 3 Information</h1>
+        <div>
+          <a href="patient.html"><h2>Patient 3: Name</h2></a>
+        </div>
+      </ul>
+    </main>
+    <script>
+      // Retrieve patients from localStorage
+      var patients = JSON.parse(localStorage.getItem('patients')) || [];
+      // Display patients in the list
+      var patientsList = document.getElementById('patientsList');
+      patients.forEach(function(patient, index) {
+        var listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <strong>Name:</strong> ${patient.patientName}<br>
+          <strong>Age:</strong> ${patient.age}<br>
+          <strong>Gender:</strong> ${patient.gender}<br>
+          <strong>Condition:</strong> ${patient.condition}<br>
+          <strong>Doctor:</strong> ${patient.doctor}<br><br>
+        `;
+        patientsList.appendChild(listItem);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+  <!DOCTYPE html>
+  <html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+  <head>
+    <title>Patient Information Form</title>
+  </head>
+  <header>
+    <img src="logo.png" class = "headerimg">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="account.html">My Patients</a></li>
+        <li><a href="account.html">My Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <h2>Add Patient Information</h2>
+    <form action="submit_patient_info.php" method="post" id="patientForm">
+      <label for="patient_name">Patient Name:</label><br>
+      <input type="text" id="patient_name" name="patient_name" required><br><br>
+      <label for="age">Age:</label><br>
+      <input type="number" id="age" name="age" required><br><br>
+      <label for="gender">Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</label><br>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label><br><br>
+  
+      <label for="condition">Condition/Reason for Visit:</label><br>
+      <textarea id="condition" name="condition" rows="4" cols="50" required></textarea><br><br>
+      
+      <label for="medication">Medication Taken/s:</label><br>
+      <textarea id="medication" name="medication" rows="4" cols="50" required></textarea><br><br>
+  
+      <label for="doctor">Attending Doctor:</label><br>
+      <input type="text" id="doctor" name="doctor" required><br><br>
+      <input type="button" value="Submit">
+    </form>
+    </script>
+  </body>
+  </html>
